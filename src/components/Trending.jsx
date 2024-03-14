@@ -7,9 +7,6 @@ const Trending = () => {
   const dispatch = useDispatch()
   const { allTagQuotes, error, loading } = useSelector((state) => state.tagReducer)
 
-  const [tagsAre, setTagsAre] = useState()
-
-
   useEffect(() => {
     dispatch(fetchTagQuotes())
   }, [])

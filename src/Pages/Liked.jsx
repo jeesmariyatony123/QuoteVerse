@@ -41,7 +41,6 @@ const Liked = () => {
                   ))
                 }
 
-
               </div>
             </Row>
           </Col>

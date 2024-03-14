@@ -1,9 +1,6 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import home from '../assets/Vector.png'
-import likes from '../assets/Likes.png'
 import rightinfos from '../assets/RighInfos.png'
 import { Link } from 'react-router-dom';
 

@@ -1,8 +1,6 @@
 import React from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import Header from './Header'
-
 import User from '../components/User';
 import QuoteSection from '../components/QuoteSection';
 import Trending from '../components/Trending';
