@@ -28,7 +28,6 @@ const QuoteSection = () => {
     }
   }
 
-  const currentPageUrl = 'twitter.com';
 
   return (
     <div>
@@ -48,7 +47,7 @@ const QuoteSection = () => {
                   <button onClick={() => handleLiked(quote)} className=' btn border-0 pe-1 ps-1 '><i className="fa-regular fa-heart"></i></button>
                   <button className='btn border-0 pe-1 '><i className="fa-regular fa-comment"></i></button>
 
-                  <TwitterShareButton url={currentPageUrl} quote="please share this post" hastag='#quote'><button className='btn border-0 '><i className="fa-regular fa-paper-plane"></i></button></TwitterShareButton>
+                  <TwitterShareButton quote="please share this post" hastag='#quote' url={`${('"' + quote?.content + '" - ' + quote?.author)}`}><button className='btn border-0 '><i className="fa-regular fa-paper-plane"></i></button></TwitterShareButton>
                   <p className='pt-2' style={{ fontSize: '13px' }}>wisdom . love</p>
                 </div>
               </div>

@@ -3,8 +3,8 @@ import axios from "axios";
 
 export const fetchTagQuotes = createAsyncThunk('quotes/fetchTagQuotes', async () => {
     const response = await axios.get("https://api.quotable.io/quotes")
-    // console.log(response.data.results);
-    sessionStorage.setItem("allQuotes", JSON.stringify(response.data.results))
+    console.log(response.data.results);
+    sessionStorage.setItem("allTagQuotes", JSON.stringify(response.data.results))
     return response.data.results
 })
 
@@ -17,6 +17,7 @@ const tagSlice = createSlice({
     },
     reducers: {
 
+     
     },
     extraReducers: (builder) => {
         builder.addCase(fetchTagQuotes.fulfilled, (state, action) => {

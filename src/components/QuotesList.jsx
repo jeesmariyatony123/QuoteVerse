@@ -3,12 +3,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import image from '../assets/Avatar.png'
 import User from '../components/User';
-import Trending from '../components/Trending';
 import Header from '../components/Header'
-import { Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTagQuotes } from '../REDUX/Slices/tagSlice';
 import { Link } from 'react-router-dom';
+import { TwitterShareButton } from "react-share";
+
 
 
 const QuotesList = () => {
@@ -16,14 +16,14 @@ const QuotesList = () => {
     const { allTagQuotes, error, loading } = useSelector((state) => state.tagReducer)
 
     const [tagsAre, setTagsAre] = useState([])
-    
+
     useEffect(() => {
         dispatch(fetchTagQuotes())
         const updatedList = allTagQuotes.map((list) => list)
         setTagsAre(updatedList)
     }, [])
 
-    const handleFilter=()=>{
+    const handleFilter = () => {
 
     }
     return (
@@ -43,9 +43,12 @@ const QuotesList = () => {
                                         <div className='ps-3' >
                                             <h6 style={{ fontSize: '16px' }}>{quote?.author}</h6>
                                             <h6 className='text-white' style={{ fontSize: '15px' }}>{quote?.content}</h6>
+                                            
                                             <button onClick={() => handleLiked(quote)} className=' btn border-0 pe-1 ps-1 '><i className="fa-regular fa-heart"></i></button>
+
                                             <button className='btn border-0 pe-1 '><i className="fa-regular fa-comment"></i></button>
-                                            <button className='btn border-0 '><i className="fa-regular fa-paper-plane"></i></button>
+
+                                            <TwitterShareButton quote="please share this post" hastag='#quote' url={`${('"' + quote?.content + '" - ' + quote?.author)}`}><button className='btn border-0 '><i className="fa-regular fa-paper-plane"></i></button></TwitterShareButton>
                                             <p className='pt-2' style={{ fontSize: '13px' }}>wisdom . love</p>
                                         </div>
                                     </div>
@@ -63,7 +66,7 @@ const QuotesList = () => {
                             </div>
 
                             <Link to={'/quotelist'}>
-                                <button onClick={() => handleAllQuotes()} className='btn border-0 text-primary pt-3 ps-1'>show all quotes</button>
+                                <button className='btn border-0 text-primary pt-3 ps-1'>show all quotes</button>
 
                             </Link>
                             <div className='text-secondary pt-2 pt-2'>AGE</div>

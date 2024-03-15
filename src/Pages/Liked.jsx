@@ -6,11 +6,14 @@ import { Col, Row } from 'react-bootstrap'
 import image from '../assets/Avatar.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeLiked } from '../REDUX/Slices/likedquoteSlice'
+import { TwitterShareButton } from "react-share";
 
 
 const Liked = () => {
   const liked = useSelector(state => state.likedquoteReducer)
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
+
+  
 
   return (
     <>
@@ -22,7 +25,7 @@ const Liked = () => {
             <Row >
               <div >
                 {
-                  liked?.map((quote,index) => (
+                  liked?.map((quote, index) => (
                     <div key={index} className='d-flex border-bottom border-secondary pt-4'>
                       <div>
                         <img src={image} />
@@ -34,7 +37,7 @@ const Liked = () => {
 
                         <button onClick={() => dispatch(removeLiked(quote?._id))} className='btn border-0 pe-1 ps-1 '><i className="fa-solid fa-heart text-danger "></i></button>
                         <button className='btn border-0 pe-1 '><i className="fa-regular fa-comment"></i></button>
-                        <button className='btn border-0 '><i className="fa-regular fa-paper-plane"></i></button>
+                        <TwitterShareButton quote="please share this post" hastag='#quote' url={`${('"' + quote?.content + '" - ' + quote?.author)}`}><button className='btn border-0 '><i className="fa-regular fa-paper-plane"></i></button></TwitterShareButton>                        
                         <p className='pt-2' style={{ fontSize: '13px' }}>wisdom . love</p>
                       </div>
                     </div>
