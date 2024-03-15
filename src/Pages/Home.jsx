@@ -14,7 +14,7 @@ function Home() {
         <Row >
           <Col lg={3} ><User /></Col>
           <Col lg={6} className='border border-top-0 border-secondary h-50'><QuoteSection /></Col>
-          <Col lg={3} className=' border-secondary'><Trending /></Col>
+          <Col lg={3} className=' border-secondary desktop'><Trending /></Col>
         </Row>
 
       </div>

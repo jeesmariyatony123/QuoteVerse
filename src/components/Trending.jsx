@@ -18,7 +18,7 @@ const Trending = () => {
   }
   return (
     <>
-      <div className='pt-5 ps-3'>
+      <div className='pt-5 ps-3 '>
         <div className='d-flex justify-content-between'>
           <h5>Trending Topics</h5>
           <i className="fa-solid fa-gear pe-4 pt-2" style={{ float: 'right' }}></i>

@@ -1,7 +1,13 @@
+.fa-regular:hover {
+   color: red !important;
+}
 
- .fa-regular:hover{
-    color:red !important;
- }
- .fa-regular-o:hover{
-    color:red !important;
- }
+.fa-regular-o:hover {
+   color: red !important;
+}
+
+
+@media (max-width: 983px) {
+   .desktop {
+      display: none;
+   } }

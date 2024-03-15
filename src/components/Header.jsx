@@ -3,8 +3,19 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import rightinfos from '../assets/RighInfos.png'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import Trending from '../components/Trending';
+
+
 
 const Header = () => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <div>
             <Row className=' text-white'>
@@ -17,9 +28,22 @@ const Header = () => {
                     <Link to={'/liked'}>
                         <button className='btn border-0'><i className="fa-solid fa-heart text-secondary fs-5"></i></button>
 
-                    </Link>                </Col>
-                <Col lg={3} className=' border-bottom border-secondary pt-3' style={{ textAlign: 'right' }}><img src={rightinfos} alt="" /></Col>
+                    </Link>
+                </Col>
+                <Col onClick={handleShow} placement={'end'} lg={3} className=' border-bottom border-secondary pt-3' style={{ textAlign: 'right' }}><img src={rightinfos} alt="" /></Col>
             </Row>
+
+
+
+
+            <Offcanvas show={show} onHide={handleClose} placement={'end'}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title></Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    <Trending />
+                </Offcanvas.Body>
+            </Offcanvas>
         </div>
     )
 }
